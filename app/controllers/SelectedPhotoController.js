@@ -1,0 +1,1 @@
+App.PhotosSelectedPhotoController = Ember.ObjectController.extend({});

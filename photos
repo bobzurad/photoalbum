@@ -1,0 +1,11 @@
+{
+    "photos": [
+        {"id": "1", "title": "Photo1", "url": "images/1.jpg"},
+        {"id": "2", "title": "Photo2", "url": "images/2.jpg"},
+        {"id": "3", "title": "Photo3", "url": "images/3.jpg"},
+        {"id": "4", "title": "Photo4", "url": "images/4a.png"},
+        {"id": "5", "title": "Photo5", "url": "images/5a.png"},
+        {"id": "6", "title": "Photo6", "url": "images/6.jpg"},
+        {"id": "7", "title": "Photo7", "url": "images/7a.png"}
+    ]
+}

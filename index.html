@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <title>photoalbum</title>
+
+    
+    <link rel="stylesheet" href="css/master.css" type="text/css" charset="utf-8">
+    
+    <meta name="author" content="Bob Zurad">
+    
+    <script src="scripts/jquery-2.0.3.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/handlebars-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/ember.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/ember-data.js" type="text/javascript" charset="utf-8"></script>
+    <script src="app/app.js" type="text/javascript" charset="utf-8"></script>
+    <script src="app/controllers/PhotosController.js" charset="utf-8"></script>
+    <script src="app/controllers/SelectedPhotoController.js" charset="utf-8"></script>
+    <script src="app/controllers/PhotoControlsController.js" charset="utf-8"></script>
+    <script src="app/models/PhotoModel.js" type="text/javascript" charset="utf-8"></script>
+    <script src="app/views/PhotoThumbnailView.js" type="text/javascript" charset="utf-8"></script>
+    <script src="app/router.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/x-handlebars">
+        <div id="mainArea">
+            {{outlet}}
+        </div>
+    </script>
+
+    <script type="text/x-handlebars" id="photos">
+        {{outlet}}
+        {{render photoControls}}
+        <div class="thumbnailViewList">
+            {{#each photo in controller}}
+            <div class="thumbnailItem">
+                {{#linkTo photos.selectedPhoto photo}}
+                    {{view App.PhotoThumbnailView
+                        srcBinding="photo.url"
+                        contentBinding="photo"}}
+                {{/linkTo}}
+            </div>
+            {{/each}}
+        </div>
+    </script>
+
+    <script type="text/x-handlebars" id="photos/selectedPhoto">
+        <div id="selectedPhoto">
+            <h1>{{title}}</h1>
+
+            <div class="selectedPhotoItem">
+                <img id="selectedImage" {{bindAttr src="url"}}/>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/x-handlebars" id="photoControls">
+        <div class="controlButtons">
+            <button {{action playSlideshow}}>Play</button>
+            <button {{action stopSlideshow}}>Stop</button>
+            <button {{action prevPhoto}}>Prev</button>
+            <button {{action nextPhoto}}>Next</button>
+        </div>
+    </script>
+</head>
+<body bgcolor="#555154">
+
+</body>
+</html>
